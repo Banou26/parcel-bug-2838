@@ -107,31 +107,15 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 })({"index.js":[function(require,module,exports) {
 "use strict";
 
-var _rxjs = require("rxjs");
-
-var _operators = require("rxjs/operators");
-
 var _parcelBundler = _interopRequireDefault(require("parcel-bundler"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-const observable = (0, _rxjs.of)(_rxjs.Observable.create(observer => {
-  const bundler = new _parcelBundler.default('./test.spec.js', {
-    target: 'browser' // hmr: false // Throw even more errors
-
-  });
-  bundler.on('buildStart', entryFiles => observer.next({
-    name: 'buildStart',
-    entryFiles,
-    buildStartTime: Date.now()
-  }));
-  bundler.bundle();
-  return _ => bundler.stop();
-})).pipe((0, _operators.mergeMap)(bundler => (0, _rxjs.merge)(bundler.pipe((0, _operators.filter)(({
-  name
-}) => name === 'buildStart')), bundler.pipe((0, _operators.filter)(({
-  name
-}) => name === 'bundled')))));
-observable.subscribe(bundleWrapper => console.log(`\n\n${bundleWrapper.name}\n\n`));
+const bundler = new _parcelBundler.default('./test.spec.js');
+bundler.on('buildStart', () => {});
+bundler.bundle();
+const bundler2 = new _parcelBundler.default('./test.spec.js');
+bundler2.on('buildStart', () => {});
+bundler2.bundle();
 },{}]},{},["index.js"], null)
 //# sourceMappingURL=index.map

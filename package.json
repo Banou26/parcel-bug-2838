@@ -10,8 +10,7 @@
     "watch": "parcel index.js --target node --public-url ./"
   },
   "dependencies": {
-    "parcel-bundler": "^1.11.0",
-    "rxjs": "6"
+    "parcel-bundler": "^1.11.0"
   },
   "devDependencies": {
     "concurrently": "^4.1.0",

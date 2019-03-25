@@ -212,10 +212,6 @@ parcelRequire = function (modules, cache, entry, globalName) {
   "index.js": [function (require, module, exports) {
     "use strict";
 
-    var _rxjs = require("rxjs");
-
-    var _operators = require("rxjs/operators");
-
     var _parcelBundler = _interopRequireDefault(require("parcel-bundler"));
 
     function _interopRequireDefault(obj) {
@@ -224,34 +220,12 @@ parcelRequire = function (modules, cache, entry, globalName) {
       };
     }
 
-    var observable = (0, _rxjs.of)(_rxjs.Observable.create(function (observer) {
-      var bundler = new _parcelBundler.default('./test.spec.js', {
-        target: 'browser' // hmr: false // Throw even more errors
-
-      });
-      bundler.on('buildStart', function (entryFiles) {
-        return observer.next({
-          name: 'buildStart',
-          entryFiles: entryFiles,
-          buildStartTime: Date.now()
-        });
-      });
-      bundler.bundle();
-      return function (_) {
-        return bundler.stop();
-      };
-    })).pipe((0, _operators.mergeMap)(function (bundler) {
-      return (0, _rxjs.merge)(bundler.pipe((0, _operators.filter)(function (_ref) {
-        var name = _ref.name;
-        return name === 'buildStart';
-      })), bundler.pipe((0, _operators.filter)(function (_ref2) {
-        var name = _ref2.name;
-        return name === 'bundled';
-      })));
-    }));
-    observable.subscribe(function (bundleWrapper) {
-      return console.log("\n\n".concat(bundleWrapper.name, "\n\n"));
-    });
+    var bundler = new _parcelBundler.default('./test.spec.js');
+    bundler.on('buildStart', function () {});
+    bundler.bundle();
+    var bundler2 = new _parcelBundler.default('./test.spec.js');
+    bundler2.on('buildStart', function () {});
+    bundler2.bundle();
   }, {}]
 }, {}, ["index.js"], null);
 },{}],"test.spec.js":[function(require,module,exports) {
@@ -289,7 +263,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61782" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61903" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
