@@ -221,10 +221,8 @@ parcelRequire = function (modules, cache, entry, globalName) {
     }
 
     var bundler = new _parcelBundler.default('./test.spec.js');
-    bundler.on('buildStart', function () {});
     bundler.bundle();
     var bundler2 = new _parcelBundler.default('./test.spec.js');
-    bundler2.on('buildStart', function () {});
     bundler2.bundle();
   }, {}]
 }, {}, ["index.js"], null);
@@ -263,7 +261,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61903" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61975" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);

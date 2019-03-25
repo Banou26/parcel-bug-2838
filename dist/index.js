@@ -112,10 +112,8 @@ var _parcelBundler = _interopRequireDefault(require("parcel-bundler"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 const bundler = new _parcelBundler.default('./test.spec.js');
-bundler.on('buildStart', () => {});
 bundler.bundle();
 const bundler2 = new _parcelBundler.default('./test.spec.js');
-bundler2.on('buildStart', () => {});
 bundler2.bundle();
 },{}]},{},["index.js"], null)
 //# sourceMappingURL=index.map
