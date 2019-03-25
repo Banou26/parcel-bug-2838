@@ -1,0 +1,20 @@
+{
+  "name": "parcel-errors",
+  "version": "0.0.1",
+  "description": "",
+  "author": "Banou",
+  "license": "MIT",
+  "scripts": {
+    "start": "concurrently \"yarn run watch\" \"yarn run nodemon\" ",
+    "nodemon": "nodemon --watch dist/index.js dist/index.js",
+    "watch": "parcel index.js --target node --public-url ./"
+  },
+  "dependencies": {
+    "parcel-bundler": "^1.11.0",
+    "rxjs": "6"
+  },
+  "devDependencies": {
+    "concurrently": "^4.1.0",
+    "nodemon": "^1.18.10"
+  }
+}
